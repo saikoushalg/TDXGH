@@ -22,7 +22,23 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="css/templatemo-leadership-event.css" rel="stylesheet">
-
+    <script>
+        window.addEventListener("load", function () {
+            const form = document.getElementById('contact-form');
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                const action = e.target.action;
+                fetch(action, {
+                    method: 'POST',
+                    body: data,
+                })
+                    .then(() => {
+                        alert("Thank You!👍 we will get back to you ASAP!");
+                    })
+            });
+        });
+    </script>
 
 </head>
 
@@ -776,7 +792,7 @@
                     <div class="col-lg-8 col-12 mx-auto">
                         <form class="custom-form contact-form bg-white shadow-lg"
                             action="https://script.google.com/macros/s/AKfycbxfAj38HkicQWItUzGHjwTFrOES0tIt2S0QzvI00sLaZasozapsTovw1pdQsHLQZgEprw/exec"
-                            method="post" role="form">
+                            method="post" id="contact-form" role="form">
                             <h2>Please Say Hi</h2>
 
                             <div class="row">
